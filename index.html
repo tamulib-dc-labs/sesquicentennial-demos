@@ -4,97 +4,31 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aggie Theme - Texas A&M Inspired Design</title>
+    <title>Sesquicentennial Demos</title>
   </head>
   <body>
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-brand">
-          <h1>Sesquicentennial Planning Demos</h1>
+    <div id="navbar"></div>
+
+    <div id="hero"></div>
+
+    <section id="feature-cards-section" class="section section-light">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Features</h2>
         </div>
-        <ul class="nav-menu">
-          <li><a href="#map">Map</a></li>
-          <li><a href="#sliders">Sliders</a></li>
-          <li><a href="#timelinwe">Timeline</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div id="feature-cards"></div>
       </div>
-    </nav>
+    </section>
 
-    <header class="hero">
-      <div class="hero-content">
-        <h1 class="hero-title">Welcome to Our Sesquicentennial Planning Demos</h1>
-        <p class="hero-subtitle">An interactive collection highlighting the custom-designed UI elements powering Texas A&M’s 150th anniversary web presence.</p>
-        <button class="btn btn-primary">Explore</button>
-      </div>
-    </header>
+    <div id="aggieland"></div>
+    <div id="using-map"></div>
+    <div id="before-after"></div>
+    <div id="timelines"></div>
 
-    <main class="container">
-      <section id="about" class="section">
-        <h2 class="section-title">About This Site</h2>
-        <p class="section-description">
-          Explore the interactive building blocks behind our 150th anniversary website including carefully crafted components that blend modern web design with Texas A&M’s rich traditions to deliver an accessible, engaging, and unified digital presence.
-        </p>
-      </section>
-
-      <section id="programs" class="section">
-        <h2 class="section-title">Features</h2>
-        <div class="card-grid">
-          <a href="map.html" style="text-decoration: none; color: inherit;">
-            <div class="card">
-              <div class="card-icon map" id="map">🗺️</div>
-              <h3 class="card-title">Aggieland Through Time</h3>
-              <p class="card-text">
-                A vivid, campus-wide map uncovering buildings and places that shaped Texas A&M's first 150 years
-              </p>
-              <button class="btn btn-primary" style="margin-top: 1rem;">Explore Map</button>
-            </div>
-          </a>
-          <div class="card">
-            <div class="card-icon">🎚️</div>
-            <h3 class="card-title">Before and After Sliders</h3>
-            <p class="card-text">
-              A simple interactive slider that lets you compare historic and modern views of campus buildings and landmarks
-            </p>
-          </div>
-          <div class="card">
-            <div class="card-icon">⏳</div>
-            <h3 class="card-title">Timeline</h3>
-            <p class="card-text">
-              A collection of interactive timeline components designed to showcase key milestones, events, and stories from Texas A&M’s 150-year history
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="section">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-form">
-          <form id="contactForm">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" required />
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
-          </form>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-content">
-        <p>&copy; Texas A&M University Libraries</p>
-      </div>
-    </footer>
+    <!-- Footer Component -->
+    <div id="footer"></div>
 
     <script type="module" src="/main.js"></script>
+    <script src="https://unpkg.com/@markpbaggett/before-after"></script>
   </body>
 </html>

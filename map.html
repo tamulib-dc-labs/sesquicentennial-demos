@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aggieland Through Time - Interactive Campus Map</title>
+    <style>
+      :root {
+        --maroon-primary: #500000;
+        --maroon-dark: #3c0000;
+        --maroon-light: #651414;
+        --white: #ffffff;
+        --gray-50: #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-600: #4b5563;
+        --gray-900: #111827;
+        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color: var(--gray-900);
+        line-height: 1.6;
+      }
+
+      /* Navigation */
+      .navbar {
+        background-color: var(--maroon-primary);
+        color: var(--white);
+        padding: 1rem 0;
+        box-shadow: var(--shadow-md);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-brand h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--white);
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-menu a {
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 500;
+        transition: opacity 0.2s;
+      }
+
+      .nav-menu a:hover {
+        opacity: 0.8;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(135deg, var(--maroon-primary) 0%, var(--maroon-dark) 100%);
+        color: var(--white);
+        padding: 5rem 2rem;
+        text-align: center;
+      }
+
+      .hero-content {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .hero-title {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+        margin-bottom: 2.5rem;
+        opacity: 0.95;
+        line-height: 1.6;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        font-size: 1.125rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .btn-primary {
+        background-color: var(--white);
+        color: var(--maroon-primary);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--gray-100);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-xl);
+      }
+
+      .btn-large {
+        padding: 1.25rem 3rem;
+        font-size: 1.25rem;
+      }
+
+      /* Container */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* Feature Section */
+      .features-section {
+        padding: 5rem 2rem;
+        background-color: var(--gray-50);
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--maroon-primary);
+        margin-bottom: 1rem;
+      }
+
+      .section-description {
+        font-size: 1.125rem;
+        color: var(--gray-600);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Feature Cards */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .feature-card {
+        background-color: var(--white);
+        border-radius: 0.75rem;
+        padding: 2.5rem;
+        box-shadow: var(--shadow-lg);
+        transition: all 0.3s;
+        border-top: 5px solid var(--maroon-primary);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-xl);
+      }
+
+      .feature-icon {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        display: block;
+      }
+
+      .feature-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--maroon-primary);
+        margin-bottom: 1rem;
+      }
+
+      .feature-description {
+        color: var(--gray-600);
+        line-height: 1.7;
+        font-size: 1rem;
+      }
+
+      /* Highlights Section */
+      .highlights-section {
+        padding: 5rem 2rem;
+        background-color: var(--white);
+      }
+
+      .highlights-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 3rem auto 0;
+      }
+
+      .highlight-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.5rem;
+        background-color: var(--gray-50);
+        border-radius: 0.5rem;
+        border-left: 4px solid var(--maroon-primary);
+      }
+
+      .highlight-icon {
+        font-size: 1.5rem;
+        flex-shrink: 0;
+      }
+
+      .highlight-text {
+        color: var(--gray-700);
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        background: linear-gradient(135deg, var(--maroon-primary) 0%, var(--maroon-dark) 100%);
+        color: var(--white);
+        padding: 5rem 2rem;
+        text-align: center;
+      }
+
+      .cta-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .cta-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-description {
+        font-size: 1.25rem;
+        margin-bottom: 2.5rem;
+        opacity: 0.95;
+      }
+
+      /* Footer */
+      .footer {
+        background-color: var(--maroon-primary);
+        color: var(--white);
+        padding: 2rem 0;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        text-align: center;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .nav-container {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .nav-menu {
+          gap: 1rem;
+        }
+
+        .hero-title {
+          font-size: 2rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1rem;
+        }
+
+        .section-title {
+          font-size: 1.75rem;
+        }
+
+        .cta-title {
+          font-size: 1.75rem;
+        }
+
+        .features-grid,
+        .highlights-list {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <h1>Aggieland Through Time</h1>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#highlights">Highlights</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Explore 150 Years of Texas A&M History</h1>
+        <p class="hero-subtitle">
+          Journey through time with our interactive campus map showcasing the buildings, landmarks, and stories that have shaped Texas A&M University over its remarkable 150-year history.
+        </p>
+        <a href="https://tamulib-dc-labs.github.io/150th-rewrite/" target="_blank" class="btn btn-primary btn-large">Launch Interactive Map</a>
+      </div>
+    </header>
+
+    <section id="features" class="features-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Discover Campus History</h2>
+          <p class="section-description">
+            Our interactive map brings Texas A&M's rich heritage to life with comprehensive historical data and engaging multimedia content.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="feature-icon">🗺️</span>
+            <h3 class="feature-title">Interactive Campus Map</h3>
+            <p class="feature-description">
+              Navigate through a detailed map of Texas A&M's campus with pinpoint locations of historic buildings, landmarks, and significant sites from the past 150 years.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-icon">📅</span>
+            <h3 class="feature-title">Timeline Navigation</h3>
+            <p class="feature-description">
+              Travel through different eras of campus development, from the Agricultural and Mechanical College's founding in 1876 to today's world-class research university.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-icon">📸</span>
+            <h3 class="feature-title">Historical Photos</h3>
+            <p class="feature-description">
+              View rare archival photographs showing campus transformation over time, from vintage images to contemporary views of beloved Aggie landmarks.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-icon">📖</span>
+            <h3 class="feature-title">Rich Stories</h3>
+            <p class="feature-description">
+              Read detailed accounts of campus buildings, traditions, and the people who made Texas A&M what it is today through curated historical narratives.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-icon">🔍</span>
+            <h3 class="feature-title">Search & Filter</h3>
+            <p class="feature-description">
+              Easily find specific locations, buildings, or time periods with powerful search and filtering tools designed for researchers and curious minds alike.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-icon">📱</span>
+            <h3 class="feature-title">Mobile Friendly</h3>
+            <p class="feature-description">
+              Experience the full interactive map on any device with a responsive design optimized for desktop, tablet, and mobile viewing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="highlights" class="highlights-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Map Highlights</h2>
+          <p class="section-description">
+            Explore some of the most significant locations and features available on our interactive campus map.
+          </p>
+        </div>
+
+        <div class="highlights-list">
+          <div class="highlight-item">
+            <span class="highlight-icon">🏛️</span>
+            <p class="highlight-text">
+              <strong>Academic Building</strong> - Discover the 1914 cornerstone of campus architecture
+            </p>
+          </div>
+
+          <div class="highlight-item">
+            <span class="highlight-icon">🏈</span>
+            <p class="highlight-text">
+              <strong>Kyle Field</strong> - Explore the home of the 12th Man since 1927
+            </p>
+          </div>
+
+          <div class="highlight-item">
+            <span class="highlight-icon">🎓</span>
+            <p class="highlight-text">
+              <strong>Memorial Student Center</strong> - Honor Aggies who served in World Wars I and II
+            </p>
+          </div>
+
+          <div class="highlight-item">
+            <span class="highlight-icon">🌳</span>
+            <p class="highlight-text">
+              <strong>Century Tree</strong> - Visit the beloved proposal spot dating back to 1900
+            </p>
+          </div>
+
+          <div class="highlight-item">
+            <span class="highlight-icon">📚</span>
+            <p class="highlight-text">
+              <strong>Sterling C. Evans Library</strong> - Navigate the heart of academic research since 1951
+            </p>
+          </div>
+
+          <div class="highlight-item">
+            <span class="highlight-icon">⚙️</span>
+            <p class="highlight-text">
+              <strong>Zachry Engineering Complex</strong> - See cutting-edge facilities from 2003
+            </p>
+          </div>
+
+          <div class="highlight-item">
+            <span class="highlight-icon">🎖️</span>
+            <p class="highlight-text">
+              <strong>Simpson Drill Field</strong> - March through history at this 1918 parade ground
+            </p>
+          </div>
+
+          <div class="highlight-item">
+            <span class="highlight-icon">🏛️</span>
+            <p class="highlight-text">
+              <strong>Bush School of Government</strong> - Explore leadership and service since 1997
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="cta-content">
+        <h2 class="cta-title">Ready to Explore?</h2>
+        <p class="cta-description">
+          Start your journey through 150 years of Aggie history with our fully interactive campus map. Discover stories, view historic photos, and explore the landmarks that define Texas A&M.
+        </p>
+        <a href="https://tamulib-dc-labs.github.io/150th-rewrite/" target="_blank" class="btn btn-primary btn-large">Launch Interactive Map</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; Texas A&M University Libraries</p>
+      </div>
+    </footer>
+  </body>
+</html>

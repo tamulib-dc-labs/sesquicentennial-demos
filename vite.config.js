@@ -9,7 +9,8 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         map: resolve(__dirname, 'map.html'),
-        sample: resolve(__dirname, 'sample.html')
+        sample: resolve(__dirname, 'sample.html'),
+        timeline: resolve(__dirname, 'timeline.html'),
       }
     }
   }

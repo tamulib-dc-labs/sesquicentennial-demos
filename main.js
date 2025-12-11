@@ -1,7 +1,3 @@
-/**
- * Sample Page - Comprehensive demonstration of all Aggie Theme Components
- */
-
 import './components/components.css';
 import {
   renderNavbar,
@@ -11,7 +7,8 @@ import {
   renderHighlight,
   renderTextContent,
   renderCTASection,
-  renderFooter
+  renderFooter,
+  renderTimeline
 } from './components/index.js';
 
 
@@ -19,9 +16,9 @@ renderNavbar('#navbar', {
   title: 'Sesquicentennial Planning Demos',
   links: [
     { text: 'Home', href: 'index.html' },
-    { text: 'Map', href: '#aggieland' },
-    { text: 'Sliders', href: '#before-after' },
-    { text: 'Timeline', href: '#timelines' }
+    { text: 'Map', href: 'index.html#aggieland' },
+    { text: 'Sliders', href: 'index.html#before-after' },
+    { text: 'Timeline', href: 'timeline.html#timelines' }
   ]
 });
 
@@ -80,7 +77,7 @@ renderContentBlock('#aggieland', {
   background: 'white',
   button: {
     text: 'Visit Aggieland Through Time',
-    href: 'https://tamulib-dc-labs.github.io/150th-rewrite/',
+    href: 'https://innovation.library.tamu.edu/aggieland/',
     type: 'secondary'
   }
 });
@@ -90,7 +87,7 @@ renderTextContent('#using-map', {
   title: 'Using Aggieland Through Time',
   subtitle: 'Existing Features and Future Elements',
   content: `
-    <p>The <a href="https://tamulib-dc-labs.github.io/150th-rewrite" target="_blank">Aggieland Through Time</a> 
+    <p>The <a href="https://innovation.library.tamu.edu/aggieland" target="_blank">Aggieland Through Time</a> 
     component lets users explore the history of the buildings across campus using either an interactive map or a 
     traditional text search.</p>
 
@@ -98,7 +95,7 @@ renderTextContent('#using-map', {
     <p>Each historic building is represented by many images taken over time. Users can view all historic images and even share
     there favorite images through persistent linking with the <em>Share</em> button.</p>
     
-    <a href="https://tamulib-dc-labs.github.io/150th-rewrite/works/academic-building?iiif-content=JTdCJTIyJTQwY29udGV4dCUyMiUzQSUyMmh0dHAlM0ElMkYlMkZpaWlmLmlvJTJGYXBpJTJGcHJlc2VudGF0aW9uJTJGMyUyRmNvbnRleHQuanNvbiUyMiUyQyUyMmlkJTIyJTNBJTIyaHR0cHMlM0ElMkYlMkZ0YW11bGliLWRjLWxhYnMuZ2l0aHViLmlvJTJGMTUwdGgtcmV3cml0ZSUyRndvcmtzJTJGYWNhZGVtaWMtYnVpbGRpbmclMkZjb250ZW50LXN0YXRlJTIyJTJDJTIydHlwZSUyMiUzQSUyMkFubm90YXRpb24lMjIlMkMlMjJtb3RpdmF0aW9uJTIyJTNBJTVCJTIyY29udGVudFN0YXRlJTIyJTVEJTJDJTIydGFyZ2V0JTIyJTNBJTdCJTIyaWQlMjIlM0ElMjJodHRwcyUzQSUyRiUyRnRhbXVsaWItZGMtbGFicy5naXRodWIuaW8lMkZzZXNxdWljZW50ZW5uaWFsLW1hbmlmZXN0cyUyRmJ1aWxkaW5nX2hpc3RvcnklMkZBY2FkZW1pY19CdWlsZGluZyUyRmNhbnZhcyUyRjMwJTIyJTJDJTIydHlwZSUyMiUzQSUyMkNhbnZhcyUyMiUyQyUyMnBhcnRPZiUyMiUzQSU1QiU3QiUyMmlkJTIyJTNBJTIyaHR0cHMlM0ElMkYlMkZ0YW11bGliLWRjLWxhYnMuZ2l0aHViLmlvJTJGc2VzcXVpY2VudGVubmlhbC1tYW5pZmVzdHMlMkZidWlsZGluZ19oaXN0b3J5JTJGQWNhZGVtaWNfQnVpbGRpbmcuanNvbiUyMiUyQyUyMnR5cGUlMjIlM0ElMjJNYW5pZmVzdCUyMiU3RCU1RCU3RCU3RA" target="_blank">
+    <a href="https://innovation.library.tamu.edu/aggieland/works/academic-building?iiif-content=JTdCJTIyJTQwY29udGV4dCUyMiUzQSUyMmh0dHAlM0ElMkYlMkZpaWlmLmlvJTJGYXBpJTJGcHJlc2VudGF0aW9uJTJGMyUyRmNvbnRleHQuanNvbiUyMiUyQyUyMmlkJTIyJTNBJTIyaHR0cHMlM0ElMkYlMkZ0YW11bGliLWRjLWxhYnMuZ2l0aHViLmlvJTJGMTUwdGgtcmV3cml0ZSUyRndvcmtzJTJGYWNhZGVtaWMtYnVpbGRpbmclMkZjb250ZW50LXN0YXRlJTIyJTJDJTIydHlwZSUyMiUzQSUyMkFubm90YXRpb24lMjIlMkMlMjJtb3RpdmF0aW9uJTIyJTNBJTVCJTIyY29udGVudFN0YXRlJTIyJTVEJTJDJTIydGFyZ2V0JTIyJTNBJTdCJTIyaWQlMjIlM0ElMjJodHRwcyUzQSUyRiUyRnRhbXVsaWItZGMtbGFicy5naXRodWIuaW8lMkZzZXNxdWljZW50ZW5uaWFsLW1hbmlmZXN0cyUyRmJ1aWxkaW5nX2hpc3RvcnklMkZBY2FkZW1pY19CdWlsZGluZyUyRmNhbnZhcyUyRjMwJTIyJTJDJTIydHlwZSUyMiUzQSUyMkNhbnZhcyUyMiUyQyUyMnBhcnRPZiUyMiUzQSU1QiU3QiUyMmlkJTIyJTNBJTIyaHR0cHMlM0ElMkYlMkZ0YW11bGliLWRjLWxhYnMuZ2l0aHViLmlvJTJGc2VzcXVpY2VudGVubmlhbC1tYW5pZmVzdHMlMkZidWlsZGluZ19oaXN0b3J5JTJGQWNhZGVtaWNfQnVpbGRpbmcuanNvbiUyMiUyQyUyMnR5cGUlMjIlM0ElMjJNYW5pZmVzdCUyMiU3RCU1RCU3RCU3RA" target="_blank">
     <figure>
         <img src="images/share.png">
         <figcaption>An example of the Share Feature</figcaption>
@@ -144,6 +141,9 @@ renderTextContent('#before-after', {
        before-label="Before"
        after-label="After"
        start-position="30"
+       link-url="https://library.tamu.edu"
+       link-text="TAMU Libraries Before and After Slider"
+       favicon-url="https://library.tamu.edu/favicon.ico"
        style="height: 400px;"
     >
     </before-after>
@@ -159,6 +159,9 @@ renderTextContent('#before-after', {
        before-label="Before"
        after-label="After"
        start-position="30"
+       link-url="https://library.tamu.edu"
+       link-text="TAMU Libraries Before and After Slider"
+       favicon-url="https://library.tamu.edu/favicon.ico"
        style="height: 800px;"
       >
       </before-after>
@@ -167,14 +170,24 @@ renderTextContent('#before-after', {
     centerTitle: false
 });
 
-renderTextContent('#timelines', {
-  title: 'Timelines',
-  subtitle: 'placeholder',
-  content: `
-    <p></p>
+// Link to unused timeline -- clean
+renderTimeline('#timelines', "timeline_data.json");
+
+// Link to Timeline as a Content Block
+renderContentBlock('#timeline-high', {
+  image: 'images/timeline.png',
+  imageAlt: 'A screenshot of our Sample Timeline',
+  title: 'Explore our Timeline Component',
+  description: `
+    <p>Explore 150 years of Texas A&M history through this interactive timeline, highlighting the milestones, achievements, and stories that shaped the university. Journey through key moments and discover how Aggie traditions and innovations evolved over time.</p>
   `,
-  width: 'medium',
-  centerTitle: false
+  imagePosition: 'left',
+  background: 'gray',
+  button: {
+    text: 'Visit Aggieland Through Time',
+    href: 'timeline.html',
+    type: 'secondary'
+  }
 });
 
 
@@ -211,7 +224,7 @@ renderFooter('#footer', {
   text: '© Texas A&M University Libraries',
   links: [
     { text: 'Documentation', href: 'COMPONENTS.md' },
-    { text: 'Example Page', href: 'example.html' },
+    { text: 'Example Page', href: 'index.html' },
     { text: 'GitHub', href: '#' }
   ]
 });

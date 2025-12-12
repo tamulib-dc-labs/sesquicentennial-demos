@@ -11,9 +11,9 @@ export default
           "date": "July 2, 1862",
           "title": "Morrill Land Grant Act Passed",
           "description": "The Morrill Land Grant Act is passed establishing a system of land-grant colleges in the United States.",
-          "image": "",
-          "imageAlt": "",
-          "link": ""
+          "image": "https://www.archives.gov/files/milestone-documents/images/doc-033-big.jpg",
+          "imageAlt": "An Image of the First Page of the Morril Land Grant Act",
+          "link": "https://docsteach.org/document/morrill-act/"
         },
         {
           "date": "November 1, 1866",
@@ -99,7 +99,7 @@ export default
           "description": "The College holds its first commencement ceremony",
           "image": "",
           "imageAlt": "",
-          "link": ""
+          "link": "https://texashistory.unt.edu/ark:/67531/metapth462096/m1/1/zoom/?q=commencement%20ceremony&resolution=1.7598565270859792&lat=4429.394578719556&lon=1584.0835485880098"
         },
         {
           "date": "1877",
@@ -221,25 +221,25 @@ export default
           "date": "July 1, 1890",
           "title": "Lawrence Sullivan Ross Named President",
           "description": "Lawrence Sullivan Ross is appointed president of the college. He would begin serving on February 1, 1891.",
-          "image": "",
-          "imageAlt": "",
-          "link": ""
+          "image": "https://newspaper.library.tamu.edu/images/iiif/batch_txa_batt_ver183%2Fdata%2Fsn86088544%2Fprint%2F1898050101%2F0010.jp2/275,2167,1784,796/full/0/default.jpg",
+          "imageAlt": "Snippet from the Battalion Confirming Sul Ross' Start Date",
+          "link": "https://theseusviewer.org/?iiif-content=JTdCJTIyJTQwY29udGV4dCUyMiUzQSUyMmh0dHAlM0ElMkYlMkZpaWlmLmlvJTJGYXBpJTJGcHJlc2VudGF0aW9uJTJGMyUyRmNvbnRleHQuanNvbiUyMiUyQyUyMmlkJTIyJTNBJTIyaHR0cHMlM0ElMkYlMkZleGFtcGxlLm9yZyUyRmltcG9ydCUyRjElMjIlMkMlMjJ0eXBlJTIyJTNBJTIyQW5ub3RhdGlvbiUyMiUyQyUyMm1vdGl2YXRpb24lMjIlM0ElNUIlMjJjb250ZW50U3RhdGUlMjIlNUQlMkMlMjJ0YXJnZXQlMjIlM0ElN0IlMjJpZCUyMiUzQSUyMmh0dHBzJTNBJTJGJTJGbmV3c3BhcGVyLmxpYnJhcnkudGFtdS5lZHUlMkZpbWFnZXMlMkZpaWlmJTJGYmF0Y2hfdHhhX2JhdHRfdmVyMTgzJTI1MkZkYXRhJTI1MkZzbjg2MDg4NTQ0JTI1MkZwcmludCUyNTJGMTg5ODA1MDEwMSUyNTJGMDAxMC5qcDIlMjN4eXdoJTNEMjc1JTJDMjE2NyUyQzE3ODQlMkM3OTYlMjIlMkMlMjJ0eXBlJTIyJTNBJTIyQ2FudmFzJTIyJTJDJTIycGFydE9mJTIyJTNBJTVCJTdCJTIyaWQlMjIlM0ElMjJodHRwcyUzQSUyRiUyRm5ld3NwYXBlci5saWJyYXJ5LnRhbXUuZWR1JTJGbGNjbiUyRnNuODYwODg1NDQlMkYxODk4LTA1LTAxJTJGZWQtMS5qc29uJTIyJTJDJTIydHlwZSUyMiUzQSUyMk1hbmlmZXN0JTIyJTdEJTVEJTdEJTdE"
         },
         {
           "date": "1891",
           "title": "Century Tree Planted",
           "description": "Estimated planting of the Century Tree.",
-          "image": "",
-          "imageAlt": "",
+          "image": "https://www.tamu.edu/_files/images/traditions/century-tree-day-time-tamu-branches.jpg",
+          "imageAlt": "A Photo of the Century Tree",
           "link": ""
         },
         {
           "date": "October 1, 1893",
           "title": "Battalion First Published",
           "description": "The first issue of the Battalion is published. It contains the first use of the word \"fish\" to refer to freshman.",
-          "image": "",
-          "imageAlt": "",
-          "link": ""
+          "image": "https://newspaper.library.tamu.edu/images/iiif/batch_txa_batt_ver06%2Fdata%2Fsn86088544%2Fprint%2F1893100101%2F0003.jp2/1769,1807,1671,1004/full/0/default.jpg",
+          "imageAlt": "Snippet from the Battalion with the use of the word \"Fish\"",
+          "link": "https://newspaper.library.tamu.edu/lccn/sn86088544/1893-10-01/ed-1/seq-3/#words=Fish"
         },
         {
           "date": "1894",
@@ -282,7 +282,7 @@ export default
           "link": "https://theseusviewer.org/?iiif-content=JTdCJTIyaWQlMjIlM0ElMjJodHRwcyUzQSUyRiUyRm5ld3NwYXBlci5saWJyYXJ5LnRhbXUuZWR1JTJGaW1hZ2VzJTJGaWlpZiUyRmJhdGNoX3R4YV9iYXR0X3ZlcjE4MyUyNTJGZGF0YSUyNTJGc244NjA4ODU0NCUyNTJGcHJpbnQlMjUyRjE4OTgxMjAxMDElMjUyRjAwMTUuanAyJTIyJTJDJTIydHlwZSUyMiUzQSUyMkNhbnZhcyUyMiUyQyUyMnBhcnRPZiUyMiUzQSU1QiU3QiUyMmlkJTIyJTNBJTIyaHR0cHMlM0ElMkYlMkZuZXdzcGFwZXIubGlicmFyeS50YW11LmVkdSUyRmxjY24lMkZzbjg2MDg4NTQ0JTJGMTg5OC0xMi0wMSUyRmVkLTEuanNvbiUyMiUyQyUyMnR5cGUlMjIlM0ElMjJNYW5pZmVzdCUyMiU3RCU1RCU3RA"
         },
         {
-          "date": "Sept. 24, 1899",
+          "date": "September 24, 1899",
           "title": "YMCA Founded",
           "description": "The opening meeting for the YMCA is held in the Assembly Hall.",
           "image": "https://newspaper.library.tamu.edu/images/iiif/batch_txa_batt_ver183%2Fdata%2Fsn86088544%2Fprint%2F1899090101%2F0020.jp2/258,425,2016,1459/full/0/default.jpg",
@@ -809,9 +809,9 @@ export default
           "date": "1955",
           "title": "First Bonfire Fatality",
           "description": "The first Bonfire related death occurred. A student was killed at the bonfire guard due to a vehicle accident.",
-          "image": "",
-          "imageAlt": "",
-          "link": ""
+          "image": "https://newspaper.library.tamu.edu/images/iiif/batch_txa_batt_ver197%2Fdata%2Fsn86088544%2Fprint%2F1955112901%2F0001.jp2/3054,2340,1672,1388/full/0/default.jpg",
+          "imageAlt": "Snippet from Newspaper Article Describing First Bonfire Related Death",
+          "link": "https://newspaper.library.tamu.edu/lccn/sn86088544/1955-11-29/ed-1/seq-1/#words=bonfire+death"
         },
         {
           "date": "December 3, 1957",

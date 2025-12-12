@@ -6,7 +6,7 @@ import {
   renderFooter,
   renderTimeline
 } from './components/index.js';
-import timelineData from './data/timeline_data.json';
+import timelineData from 'data/timeline_data.json';
 
 
 renderNavbar('#navbar', {

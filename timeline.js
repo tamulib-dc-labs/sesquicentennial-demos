@@ -2,14 +2,11 @@ import './components/components.css';
 import {
   renderNavbar,
   renderHero,
-  renderContentBlock,
   renderCardGrid,
-  renderHighlight,
-  renderTextContent,
-  renderCTASection,
   renderFooter,
   renderTimeline
 } from './components/index.js';
+import timelineData from './data/timeline_data.json';
 
 
 renderNavbar('#navbar', {
@@ -33,7 +30,15 @@ renderHero('#hero', {
   }
 });
 
-renderTimeline('#timelines', `${import.meta.env.BASE_URL}data/timeline_data.json`);
+renderTimeline('#timelines', timelineData);
 
 renderCardGrid('#feature-cards', featureCards);
 
+renderFooter('#footer', {
+  text: '© Texas A&M University Libraries',
+  links: [
+    { text: 'Documentation', href: 'COMPONENTS.md' },
+    { text: 'Example Page', href: 'index.html' },
+    { text: 'GitHub', href: '#' }
+  ]
+});

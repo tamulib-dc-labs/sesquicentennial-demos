@@ -58,7 +58,7 @@ const featureCards = [
     description: 'A collection of interactive timeline components designed to showcase key milestones, events, and stories from Texas A&M’s 150-year history',
     button: {
       text: 'Explore',
-      href: '#timelines'
+      href: '#timeline-high'
     }
   },
 ]

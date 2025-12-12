@@ -1,9 +1,12 @@
+import FlexSearch from 'flexsearch';
+
 /**
- * Creates a timeline component with decade-based navigation
+ * Creates a timeline component with decade-based navigation and search
  * @param {Object} options - Configuration options
  * @param {string} options.title - The timeline title
  * @param {string} options.subtitle - Optional subtitle
  * @param {Array} options.decades - Array of decade objects
+ * @param {boolean} options.enableSearch - Enable search functionality (default: true)
  * @returns {string} HTML string for the timeline
  *
  * Decade object structure:
@@ -22,10 +25,35 @@
  *   ]
  * }
  */
-export function createTimeline({ title = 'Timeline', subtitle = '', decades = [] } = {}) {
+export function createTimeline({ title = 'Timeline', subtitle = '', decades = [], enableSearch = true } = {}) {
   const timelineId = `timeline-${Math.random().toString(36).substr(2, 9)}`;
 
-  // Generate decade tabs
+  // Search box HTML
+  const searchHTML = enableSearch ? `
+    <div class="timeline-search">
+      <input
+        type="text"
+        class="timeline-search-input"
+        placeholder="Search timeline events..."
+        aria-label="Search timeline events"
+      />
+      <button class="timeline-search-clear" aria-label="Clear search" style="display: none;">✕</button>
+    </div>
+  ` : '';
+
+  // Generate decade tabs with "All" tab for search results
+  const allTabHTML = enableSearch ? `
+    <button
+      class="timeline-tab timeline-tab-all"
+      data-decade="all"
+      aria-selected="false"
+      role="tab"
+      style="display: none;"
+    >
+      Search Results
+    </button>
+  ` : '';
+
   const tabsHTML = decades.map((decade, index) => `
     <button
       class="timeline-tab ${index === 0 ? 'timeline-tab-active' : ''}"
@@ -39,7 +67,8 @@ export function createTimeline({ title = 'Timeline', subtitle = '', decades = []
 
   // Generate decade sections with event cards
   const sectionsHTML = decades.map((decade, index) => {
-    const eventsHTML = decade.events.map(event => {
+    const eventsHTML = decade.events.map((event, eventIndex) => {
+      const eventId = `event-${decade.year}-${eventIndex}`;
       const imageHTML = event.image ? `
         <div class="timeline-card-image">
           ${event.link ? `<a href="${event.link}" target="_blank" rel="noopener noreferrer">` : ''}
@@ -49,7 +78,7 @@ export function createTimeline({ title = 'Timeline', subtitle = '', decades = []
       ` : '';
 
       return `
-        <div class="timeline-card">
+        <div class="timeline-card" data-event-id="${eventId}" data-decade="${decade.year}">
           <div class="timeline-card-date">${event.date}</div>
           ${imageHTML}
           <div class="timeline-card-content">
@@ -73,6 +102,21 @@ export function createTimeline({ title = 'Timeline', subtitle = '', decades = []
     `;
   }).join('');
 
+  // Search results section
+  const searchResultsHTML = enableSearch ? `
+    <div
+      class="timeline-section timeline-search-results"
+      data-decade="all"
+      role="tabpanel"
+      style="display: none;"
+    >
+      <div class="timeline-cards"></div>
+      <div class="timeline-no-results" style="display: none;">
+        <p>No events found matching your search.</p>
+      </div>
+    </div>
+  ` : '';
+
   return `
     <div class="timeline" id="${timelineId}">
       <div class="timeline-header">
@@ -80,11 +124,15 @@ export function createTimeline({ title = 'Timeline', subtitle = '', decades = []
         ${subtitle ? `<p class="timeline-subtitle">${subtitle}</p>` : ''}
       </div>
 
+      ${searchHTML}
+
       <div class="timeline-tabs" role="tablist">
+        ${allTabHTML}
         ${tabsHTML}
       </div>
 
       <div class="timeline-content">
+        ${searchResultsHTML}
         ${sectionsHTML}
       </div>
     </div>
@@ -92,13 +140,55 @@ export function createTimeline({ title = 'Timeline', subtitle = '', decades = []
 }
 
 /**
- * Attaches event listeners to timeline tabs
- * @param {Element} element - The timeline container element
+ * Creates a search index from timeline data
+ * @param {Array} decades - Array of decade objects
+ * @returns {Object} FlexSearch index and event mapping
  */
-function attachTimelineListeners(element) {
+function createSearchIndex(decades) {
+  const index = new FlexSearch.Document({
+    document: {
+      id: 'id',
+      index: ['title', 'description', 'date'],
+      store: ['title', 'description', 'date', 'decadeYear', 'eventIndex', 'image', 'imageAlt', 'link']
+    },
+    tokenize: 'forward',
+    cache: true
+  });
+
+  const events = [];
+  let eventId = 0;
+
+  decades.forEach(decade => {
+    decade.events.forEach((event, eventIndex) => {
+      const doc = {
+        id: eventId++,
+        title: event.title,
+        description: event.description,
+        date: event.date,
+        decadeYear: decade.year,
+        eventIndex: eventIndex,
+        image: event.image || '',
+        imageAlt: event.imageAlt || '',
+        link: event.link || ''
+      };
+      index.add(doc);
+      events.push(doc);
+    });
+  });
+
+  return { index, events };
+}
+
+/**
+ * Attaches event listeners to timeline tabs and search
+ * @param {Element} element - The timeline container element
+ * @param {Object} searchData - Search index and events (optional)
+ */
+function attachTimelineListeners(element, searchData = null) {
   const tabs = element.querySelectorAll('.timeline-tab');
   const sections = element.querySelectorAll('.timeline-section');
 
+  // Tab switching
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       const decade = tab.dataset.decade;
@@ -121,6 +211,164 @@ function attachTimelineListeners(element) {
       });
     });
   });
+
+  // Search functionality
+  if (searchData) {
+    const searchInput = element.querySelector('.timeline-search-input');
+    const searchClear = element.querySelector('.timeline-search-clear');
+    const searchResultsSection = element.querySelector('.timeline-search-results');
+    const searchResultsCards = searchResultsSection?.querySelector('.timeline-cards');
+    const noResults = searchResultsSection?.querySelector('.timeline-no-results');
+    const allTab = element.querySelector('.timeline-tab-all');
+
+    if (searchInput && searchData) {
+      let searchTimeout;
+
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.trim();
+
+        // Show/hide clear button
+        if (searchClear) {
+          searchClear.style.display = query ? 'block' : 'none';
+        }
+
+        // Debounce search
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+          if (query.length >= 2) {
+            performSearch(query, searchData, element, {
+              searchResultsSection,
+              searchResultsCards,
+              noResults,
+              allTab,
+              tabs,
+              sections
+            });
+          } else if (query.length === 0) {
+            clearSearch({ searchResultsSection, allTab, tabs, sections });
+          }
+        }, 300);
+      });
+
+      // Clear button
+      if (searchClear) {
+        searchClear.addEventListener('click', () => {
+          searchInput.value = '';
+          searchClear.style.display = 'none';
+          clearSearch({ searchResultsSection, allTab, tabs, sections });
+          searchInput.focus();
+        });
+      }
+    }
+  }
+}
+
+/**
+ * Performs a search and displays results
+ */
+function performSearch(query, searchData, element, components) {
+  const { searchResultsSection, searchResultsCards, noResults, allTab, tabs, sections } = components;
+
+  // Perform search
+  const results = searchData.index.search(query, { limit: 100, enrich: true });
+
+  // Combine results from different fields
+  const uniqueResults = new Map();
+  results.forEach(fieldResults => {
+    fieldResults.result.forEach(item => {
+      if (!uniqueResults.has(item.id)) {
+        uniqueResults.set(item.id, item.doc);
+      }
+    });
+  });
+
+  const resultDocs = Array.from(uniqueResults.values());
+
+  if (resultDocs.length > 0) {
+    // Show results
+    const resultsHTML = resultDocs.map(event => {
+      const eventId = `event-${event.decadeYear}-${event.eventIndex}`;
+      const imageHTML = event.image ? `
+        <div class="timeline-card-image">
+          ${event.link ? `<a href="${event.link}" target="_blank" rel="noopener noreferrer">` : ''}
+            <img src="${event.image}" alt="${event.imageAlt || event.title}" />
+          ${event.link ? `</a>` : ''}
+        </div>
+      ` : '';
+
+      return `
+        <div class="timeline-card" data-event-id="${eventId}" data-decade="${event.decadeYear}">
+          <div class="timeline-card-date">${event.date}</div>
+          ${imageHTML}
+          <div class="timeline-card-content">
+            <h3 class="timeline-card-title">${event.title}</h3>
+            <div class="timeline-card-description">${event.description}</div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    searchResultsCards.innerHTML = resultsHTML;
+    noResults.style.display = 'none';
+  } else {
+    searchResultsCards.innerHTML = '';
+    noResults.style.display = 'block';
+  }
+
+  // Switch to search results tab
+  if (allTab) {
+    allTab.style.display = 'block';
+    allTab.textContent = `Search Results (${resultDocs.length})`;
+
+    tabs.forEach(t => {
+      t.classList.remove('timeline-tab-active');
+      t.setAttribute('aria-selected', 'false');
+    });
+    allTab.classList.add('timeline-tab-active');
+    allTab.setAttribute('aria-selected', 'true');
+  }
+
+  sections.forEach(section => {
+    section.classList.remove('timeline-section-active');
+  });
+  searchResultsSection.style.display = 'block';
+  searchResultsSection.classList.add('timeline-section-active');
+}
+
+/**
+ * Clears search and returns to normal view
+ */
+function clearSearch(components) {
+  const { searchResultsSection, allTab, tabs, sections } = components;
+
+  // Hide search results
+  if (searchResultsSection) {
+    searchResultsSection.style.display = 'none';
+    searchResultsSection.classList.remove('timeline-section-active');
+  }
+
+  // Hide "All" tab
+  if (allTab) {
+    allTab.style.display = 'none';
+    allTab.classList.remove('timeline-tab-active');
+    allTab.setAttribute('aria-selected', 'false');
+  }
+
+  // Activate first regular tab
+  const firstRegularTab = Array.from(tabs).find(t => !t.classList.contains('timeline-tab-all'));
+  if (firstRegularTab) {
+    firstRegularTab.classList.add('timeline-tab-active');
+    firstRegularTab.setAttribute('aria-selected', 'true');
+
+    const decade = firstRegularTab.dataset.decade;
+    sections.forEach(section => {
+      if (section.dataset.decade === decade && !section.classList.contains('timeline-search-results')) {
+        section.classList.add('timeline-section-active');
+      } else {
+        section.classList.remove('timeline-section-active');
+      }
+    });
+  }
 }
 
 /**
@@ -176,5 +424,10 @@ export async function renderTimeline(selector, options) {
   }
 
   element.innerHTML = createTimeline(timelineData);
-  attachTimelineListeners(element);
+
+  // Create search index if search is enabled
+  const enableSearch = timelineData.enableSearch !== false;
+  const searchData = enableSearch ? createSearchIndex(timelineData.decades) : null;
+
+  attachTimelineListeners(element, searchData);
 }

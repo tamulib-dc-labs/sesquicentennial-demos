@@ -8,7 +8,9 @@ import {
   renderTextContent,
   renderCTASection,
   renderFooter,
-  renderTimeline
+  renderTimeline,
+  renderModalGrid,
+    renderModal
 } from './components/index.js';
 
 
@@ -25,7 +27,7 @@ renderNavbar('#navbar', {
 
 renderHero('#hero', {
   title: 'Welcome to Our Sesquicentennial Planning Demos',
-  subtitle: 'An interactive collection highlighting the custom-designed UI elements powering Texas A&M’s 150th anniversary web presence.',
+  subtitle: 'A collection of custom components and other experiments designed for Texas A&M’s 150th anniversary web presence.',
   button: {
     text: 'Scroll to Explore',
     href: '#feature-cards',
@@ -37,7 +39,7 @@ const featureCards = [
   {
     icon: '🗺',
     title: 'Aggieland Through Time',
-    description: 'A vivid, campus-wide map uncovering buildings and places that shaped Texas A&M\'s first 150 years',
+    description: 'Explore a map of our campus and uncover buildings and places that shaped Texas A&M\'s first 150 years',
     button: {
         text: 'Explore',
         href: '#aggieland'
@@ -46,7 +48,7 @@ const featureCards = [
   {
     icon: '🎚️',
     title: 'Before and After Sliders',
-    description: 'Simple interactive sliders that lets you compare historic and modern views of campus buildings and landmarks and other images',
+    description: 'A set of interactive sliders that let you compare historic and modern views of campus buildings, landmarks, and other images',
     button: {
       text: 'Explore',
       href: '#before-after'
@@ -162,7 +164,7 @@ renderTextContent('#before-after', {
        link-url="https://library.tamu.edu"
        link-text="TAMU Libraries Before and After Slider"
        favicon-url="https://library.tamu.edu/favicon.ico"
-       style="height: 800px;"
+       style="height: 650px;"
       >
       </before-after>
   `,
@@ -191,32 +193,29 @@ renderContentBlock('#timeline-high', {
 });
 
 
-renderHighlight('#highlight-2', {
-  icon: '✅',
-  title: 'Component Library Status',
-  content: `
-    <p><strong>All 10 components are production-ready:</strong></p>
-    <ul style="margin-top: 1rem; margin-bottom: 0;">
-      <li>Navbar, Hero, Footer</li>
-      <li>Card, Card Grid, Section</li>
-      <li>Content Block, CTA Section</li>
-      <li>Highlight, Text Content Area</li>
-    </ul>
-  `,
-  type: 'success'
-});
-
 
 renderCTASection('#cta', {
-  title: 'Ready to Build Your Own Page?',
-  description: 'Use these components to create beautiful Texas A&M themed pages in minutes. All components are documented and ready to use right now.',
+  title: '',
+  description: '',
   button: {
     text: 'View Documentation',
-    href: 'COMPONENTS.md',
+    href: '#',
     target: '_blank'
   },
   background: 'gradient',
   size: 'large'
+});
+
+
+renderTextContent('#graveyard', {
+  title: '🪦 Graveyard',
+  subtitle: 'This section contains components that were explored but ultimately discontinued.',
+  content: `
+    <h3>Building History Timeline</h3>
+    <p>The building history timeline allows users to view images of campus in chronological order.</p>
+  `,
+  width: 'medium',
+  centerTitle: false
 });
 
 
@@ -228,3 +227,13 @@ renderFooter('#footer', {
     { text: 'GitHub', href: '#' }
   ]
 });
+
+renderModal('#building-timeline', {
+    image: 'images/building-history.png',
+    imageAlt: 'Click to view Building History Timeline',
+    iframeUrl: 'https://jamesmisson.github.io/iiif-timeline/?c=https://tamulib-dc-labs.github.io/sesquicentennial-manifests/collections.json',
+    title: 'Building History Timeline',
+    size: 'fullscreen'
+  });
+
+

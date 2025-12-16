@@ -3,7 +3,7 @@ import './components/components.css';
 import {
     renderNavbar,
     renderFooter,
-    renderAggieViewer, renderCardGrid,
+    renderCardGrid, renderModal,
 } from './components/index.js';
 
 
@@ -17,10 +17,13 @@ renderNavbar('#navbar', {
   ]
 });
 
-renderAggieViewer('#ted-franklin',
-    'https://avalon-pre.library.tamu.edu/media_objects/bz60cw37t/manifest',
-    { showTitle: true }
-);
+renderModal('#open-avalon', {
+    image: 'images/open-avalon.png',
+    imageAlt: 'A View of a Completed Oral History',
+    iframeUrl: 'https://avalon-pre.library.tamu.edu/media_objects/bz60cw37t',
+    title: 'A Sample Oral History',
+    size: 'fullscreen'
+  });
 
 renderFooter('#footer', {
   text: '© Texas A&M University Libraries',

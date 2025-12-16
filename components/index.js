@@ -15,6 +15,13 @@ export { createHighlight, renderHighlight } from './highlight.js';
 export { createTextContent, renderTextContent } from './text-content.js';
 export { createTimeline, renderTimeline } from './timeline.js';
 export { createModal, renderModal, createModalGrid, renderModalGrid } from './modal.js';
+export {
+  renderCloverViewer,
+  renderCloverScroll,
+  renderAggieViewer,
+  renderAggieScroll,
+  getAggieTheme
+} from './clover.js';
 
 /**
  * Import all components and styles in one line:

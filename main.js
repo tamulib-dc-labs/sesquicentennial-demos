@@ -10,8 +10,11 @@ import {
   renderFooter,
   renderTimeline,
   renderModalGrid,
-    renderModal
+    renderModal,
+    renderAggieViewer,
+    renderAggieScroll
 } from './components/index.js';
+
 
 
 renderNavbar('#navbar', {
@@ -192,7 +195,22 @@ renderContentBlock('#timeline-high', {
   }
 });
 
-
+renderContentBlock('#handwritten', {
+  image: 'images/handwritten-text.png',
+  imageAlt: 'A screenshot of our Hand Written Text Recognition',
+  title: 'Performing Handwritten Text Recognition',
+  description: `
+    <p>
+    As part of Texas A&M’s 150th anniversary, discover how we are leveraging emerging AI transcription methods to make handwritten documents more accessible and searchable.</p>
+  `,
+  imagePosition: 'right',
+  background: 'white',
+  button: {
+    text: 'Explore our Use of Handwritten Text Recognition',
+    href: 'handwritten.html',
+    type: 'secondary'
+  }
+});
 
 renderCTASection('#cta', {
   title: '',
@@ -236,4 +254,12 @@ renderModal('#building-timeline', {
     size: 'fullscreen'
   });
 
+renderAggieViewer('#display-cole4',
+    'https://api-pre.library.tamu.edu/iiif-service/fedora/presentation/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/cole-papers_objects/4',
+    { showTitle: true }
+  );
 
+renderAggieScroll('#scroll',
+    'https://api-pre.library.tamu.edu/iiif-service/fedora/presentation/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/cole-papers_objects/4',
+    { showTitle: true }
+  );

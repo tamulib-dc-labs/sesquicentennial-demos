@@ -12,6 +12,9 @@
     "vite": "^5.0.8"
   },
   "dependencies": {
-    "flexsearch": "^0.8.212"
+    "@samvera/clover-iiif": "^3.0.3",
+    "flexsearch": "^0.8.212",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }

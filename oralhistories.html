@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using Whisper X and HPRC for Oral Histories</title>
+  </head>
+  <body>
+    <div id="navbar"></div>
+    <div class="text-content text-content-medium">
+        <h2 class="timeline-title">Unlocking Oral Histories at Scale</h2>
+        <p class="timeline-subtitle">Using WhisperX and High Performance Research Computing to Transform Audio into Text</p>
+        <br/>
+        <p>
+            Texas A&M University Libraries is committed to making our rich collections of oral histories and audiovisual materials more accessible to everyone. A key part of this work is creating captions, subtitles, and transcripts so that audio and video content can be searched, read, and used by a wider audience.
+        </p>
+        <br/>
+        <p>
+            Over the past year, we have had great success using Whisper, an automated speech-to-text tool, to generate transcripts. While the results were excellent, the process itself was slow and labor-intensive when run on standard desktop computers. Because these tools are designed to work best with specialized graphics hardware (GPUs), running them without that hardware meant we could only process a small number of files at a time.
+        </p>
+        <br/>
+        <p>
+            As part of a research university, we realized we could take advantage of resources beyond our desktop machines. This led us to explore High Performance Research Computing (HPRC) at Texas A&M University. Any faculty, staff, or student can apply for access to these shared computing resources, so we submitted a proposal to experiment with using them for large-scale transcription and metadata work.
+        </p>
+        <br/>
+        <p>
+            Through this process, we were granted access to the <a href="https://hprc.tamu.edu/kb/User-Guides/Grace/">GRACE cluster</a>, Texas A&M’s main supercomputing system, along with an annual allocation of computing time. GRACE is designed to handle large, complex tasks by running many jobs in parallel and by using powerful hardware that is not typically available on personal computers. These capabilities make it well suited for projects that involve processing large volumes of audio and video.
+        </p>
+        <br/>
+        <p>
+            After adapting our workflows to run on GRACE, the results were dramatic. In a single day, we were able to generate transcripts for more than 275 hours of audio, using less than two percent of our total annual computing allocation. What previously would have taken weeks of hands-on effort could now be completed in hours.
+        </p>
+        <br/>
+        <h2 class="timeline-title">An Example Completed Audio Work Using GRACE and Whisper X</h2>
+    </div>
+    <div id="ted-franklin" class="text-content text-content-medium"></div>
+    <div id="feature-cards" class="text-content text-content-large"></div>
+    <div id="footer"></div>
+    <script type="module" src="/oral.js"></script>
+  </body>
+</html>

@@ -4,15 +4,10 @@ import {
   renderHero,
   renderContentBlock,
   renderCardGrid,
-  renderHighlight,
   renderTextContent,
-  renderCTASection,
   renderFooter,
   renderTimeline,
-  renderModalGrid,
-    renderModal,
-    renderAggieViewer,
-    renderAggieScroll
+  renderModal,
 } from './components/index.js';
 
 
@@ -175,10 +170,8 @@ renderTextContent('#before-after', {
     centerTitle: false
 });
 
-// Link to unused timeline -- clean
 renderTimeline('#timelines', "timeline_data.json");
 
-// Link to Timeline as a Content Block
 renderContentBlock('#timeline-high', {
   image: 'images/timeline.png',
   imageAlt: 'A screenshot of our Sample Timeline',
@@ -212,16 +205,20 @@ renderContentBlock('#handwritten', {
   }
 });
 
-renderCTASection('#cta', {
-  title: '',
-  description: '',
+renderContentBlock('#oralhistories', {
+  image: 'images/open-avalon.png',
+  imageAlt: 'A screenshot of an OralHistory',
+  title: 'Unlocking Oral Histories at Scale',
+  description: `
+    <p>Texas A&M University Libraries is committed to making our rich collections of oral histories and audiovisual materials more accessible to everyone. A key part of this work is creating captions, subtitles, and transcripts so that audio and video content can be searched, read, and used by a wider audience. Learn how we are using HPRC and Whisper X to generate these at scale.</p>
+  `,
+  imagePosition: 'left',
+  background: 'white',
   button: {
-    text: 'View Documentation',
-    href: '#',
-    target: '_blank'
-  },
-  background: 'gradient',
-  size: 'large'
+    text: 'Learn More',
+    href: 'oralhistories',
+    type: 'secondary'
+  }
 });
 
 
@@ -253,13 +250,3 @@ renderModal('#building-timeline', {
     title: 'Building History Timeline',
     size: 'fullscreen'
   });
-
-renderAggieViewer('#display-cole4',
-    'https://api-pre.library.tamu.edu/iiif-service/fedora/presentation/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/cole-papers_objects/4',
-    { showTitle: true }
-  );
-
-renderAggieScroll('#scroll',
-    'https://api-pre.library.tamu.edu/iiif-service/fedora/presentation/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/cole-papers_objects/4',
-    { showTitle: true }
-  );

@@ -215,7 +215,7 @@ renderContentBlock('#oralhistories', {
   imagePosition: 'left',
   background: 'white',
   button: {
-    text: 'Learn More',
+    text: 'Learn More about our AV Work Using AI',
     href: 'oralhistories',
     type: 'secondary'
   }

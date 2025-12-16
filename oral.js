@@ -4,6 +4,7 @@ import {
     renderNavbar,
     renderFooter,
     renderAggieViewer, renderCardGrid,
+    renderModal
 } from './components/index.js';
 
 
@@ -62,3 +63,11 @@ const featureCards = [
 ]
 
 renderCardGrid('#feature-cards', featureCards);
+
+renderModal('#ramp-external', {
+    image: 'images/avalon-example.png',
+    imageAlt: 'View An Oral History',
+    iframeUrl: 'https://avalon-pre.library.tamu.edu/media_objects/bz60cw37t',
+    title: 'View a Completed Oral History',
+    size: 'fullscreen'
+  });

@@ -12,6 +12,7 @@ export default defineConfig({
         sample: resolve(__dirname, 'sample.html'),
         timeline: resolve(__dirname, 'timeline.html'),
         handwritten: resolve(__dirname, 'handwritten.html'),
+        oralhistories: resolve(__dirname, 'oralhistories.html'),
       }
     }
   }

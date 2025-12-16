@@ -11,6 +11,7 @@ export default defineConfig({
         map: resolve(__dirname, 'map.html'),
         sample: resolve(__dirname, 'sample.html'),
         timeline: resolve(__dirname, 'timeline.html'),
+        handwritten: resolve(__dirname, 'handwritten.html'),
       }
     }
   }

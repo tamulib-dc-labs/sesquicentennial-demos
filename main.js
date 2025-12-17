@@ -250,3 +250,6 @@ renderModal('#building-timeline', {
     title: 'Building History Timeline',
     size: 'fullscreen'
   });
+
+// Show content once everything is loaded
+document.body.classList.add('loaded');

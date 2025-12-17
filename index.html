@@ -5,6 +5,11 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sesquicentennial Demos</title>
+    <style>
+      /* Hide content until JS loads */
+      body { opacity: 0; transition: opacity 0.3s ease-in; }
+      body.loaded { opacity: 1; }
+    </style>
   </head>
   <body>
     <div id="navbar"></div>

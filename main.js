@@ -136,13 +136,28 @@ renderTextContent('#before-after', {
     <p>Our horizontal slider can be used when the images naturally progress from left to right</p>
     
     <before-after
-       before="https://www.aggienetwork.com/images/thenandnow/fullpano1.jpg"
-       after="https://www.aggienetwork.com/images/thenandnow/fullpano2.jpg"
-       before-label="Before"
-       after-label="After"
+       before="https://iiif.archive.org/image/iiif/3/glasscock-old%2Fglasscock-OLD.jpg/full/max/0/default.jpg"
+       after="https://iiif.archive.org/image/iiif/3/glasscock-new%2Fglasscock-NEW.jpg/full/max/0/default.jpg"
+       before-label="Glasscock - Old"
+       after-label="Glasscock - New"
        start-position="30"
        link-url="https://library.tamu.edu"
-       link-text="TAMU Libraries Before and After Slider"
+       link-text="Cushing Memorial Library"
+       favicon-url="https://library.tamu.edu/favicon.ico"
+       style="height: 400px;"
+    >
+    </before-after>
+    
+    <br/>
+    
+    <before-after
+       before="https://iiif.archive.org/image/iiif/3/monumenton-new-main%2FMonumentonNewMain-After.jpg/full/max/0/default.jpg"
+       after="https://iiif.archive.org/image/iiif/3/monumenton-new-main%2FMonumentonNewMain-Before.jpg/full/max/0/default.jpg"
+       before-label="Old Main"
+       after-label="New Main"
+       start-position="50"
+       link-url="https://library.tamu.edu"
+       link-text="Cushing Memorial Library"
        favicon-url="https://library.tamu.edu/favicon.ico"
        style="height: 400px;"
     >
@@ -154,15 +169,15 @@ renderTextContent('#before-after', {
     <p>Conversely, our vertical slider allows you to compare two images that are </p>
       <before-after
        orientation="vertical"
-       before="https://api-pre.library.tamu.edu/iiif/2/aHR0cHM6Ly9hcGktcHJlLmxpYnJhcnkudGFtdS5lZHUvZmNyZXBvL3Jlc3QvYmIvOTcvZjIvM2UvYmI5N2YyM2UtODAzYS00YmQ2LTg0MDYtMDY4MDI2MjM1NTRjL2F1ZHJleS1pbXBvcnRfb2JqZWN0cy8xMS9wYWdlcy9wYWdlXzAvZmlsZXMvMzUzNDA0MjI4Ml8yZGVkMGNmYjY5X28uanBn/full/full/0/default.jpg"
-       after="https://api-pre.library.tamu.edu/iiif/2/aHR0cHM6Ly9hcGktcHJlLmxpYnJhcnkudGFtdS5lZHUvZmNyZXBvL3Jlc3QvYmIvOTcvZjIvM2UvYmI5N2YyM2UtODAzYS00YmQ2LTg0MDYtMDY4MDI2MjM1NTRjL2F1ZHJleS1pbXBvcnRfb2JqZWN0cy80My9wYWdlcy9wYWdlXzAvZmlsZXMvQWNhZGVtaWMlMjBCdWlsZGluZyUyMDc4LnRpZg==/full/full/0/default.jpg"
-       before-label="Before"
-       after-label="After"
+       before="https://iiif.archive.org/image/iiif/3/halbouty-NEW%2Fhalbouty-OLD.jpg/full/max/0/default.jpg"
+       after="https://iiif.archive.org/image/iiif/3/halbouty-NEW%2Fhalbouty-NEW.jpg/full/max/0/default.jpg"
+       before-label="Halbouty - Old"
+       after-label="Halbouty - New"
        start-position="30"
        link-url="https://library.tamu.edu"
-       link-text="TAMU Libraries Before and After Slider"
+       link-text="Cushing Memorial Library"
        favicon-url="https://library.tamu.edu/favicon.ico"
-       style="height: 650px;"
+       style="height: 700px;"
       >
       </before-after>
   `,

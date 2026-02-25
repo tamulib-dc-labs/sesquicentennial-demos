@@ -180,6 +180,38 @@ renderTextContent('#before-after', {
        style="height: 700px;"
       >
       </before-after>
+    
+    <h3> 
+        Opacity Slider
+    </h3>
+      <p>Drag the bar at the bottom to blend between the two stacked images.</p>
+      <opacity-compare
+       before="https://iiif.archive.org/image/iiif/3/glasscock-old%2Fglasscock-OLD.jpg/full/max/0/default.jpg"
+       after="https://iiif.archive.org/image/iiif/3/glasscock-new%2Fglasscock-NEW.jpg/full/max/0/default.jpg"
+       before-label="Before"
+       after-label="After"
+       start-opacity="0"
+       style="height: 400px; display: block; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 3rem;"
+      >
+      </opacity-compare>
+      
+    <h3> 
+        Opacity Slider with Auto Play
+    </h3>
+      <p>If autoplay is enabled, we can pass a time and autoplay the slider.</p>
+      <opacity-compare
+       before="https://iiif.archive.org/image/iiif/3/glasscock-old%2Fglasscock-OLD.jpg/full/max/0/default.jpg"
+       after="https://iiif.archive.org/image/iiif/3/glasscock-new%2Fglasscock-NEW.jpg/full/max/0/default.jpg"
+       before-label="Before"
+       after-label="After"
+       start-opacity="0"
+       style="height: 400px; display: block; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 3rem;"
+       auto-play
+       auto-play-stop-on-interact="true"
+       auto-play
+       auto-play-speed="10000"
+      >
+      
   `,
     width: 'medium',
     centerTitle: false
@@ -235,7 +267,6 @@ renderContentBlock('#oralhistories', {
     type: 'secondary'
   }
 });
-
 
 renderTextContent('#graveyard', {
   title: '🪦 Graveyard',

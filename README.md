@@ -1,12 +1,14 @@
 # Sesquicentennial Demos Site
 
-An interactive collection highlighting the custom-designed UI elements powering Texas A&M's 150th anniversary web presence.
+A living web page showing all of the web components we've created thus far for our Sesquicentennial celebration.
 
 ## Getting Started
 
 ### Using Reusable Components
 
-This project includes a complete component system for building Texas A&M themed pages. See [COMPONENTS.md](COMPONENTS.md) for full documentation.
+This project includes a complete-ish component system for building Texas A&M themed page. 
+
+See [COMPONENTS.md](COMPONENTS.md) for full documentation.
 
 **Quick example:**
 

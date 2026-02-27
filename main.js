@@ -97,7 +97,7 @@ renderTextContent('#using-map', {
     
     <a href="https://innovation.library.tamu.edu/aggieland/works/academic-building?iiif-content=JTdCJTIyJTQwY29udGV4dCUyMiUzQSUyMmh0dHAlM0ElMkYlMkZpaWlmLmlvJTJGYXBpJTJGcHJlc2VudGF0aW9uJTJGMyUyRmNvbnRleHQuanNvbiUyMiUyQyUyMmlkJTIyJTNBJTIyaHR0cHMlM0ElMkYlMkZ0YW11bGliLWRjLWxhYnMuZ2l0aHViLmlvJTJGMTUwdGgtcmV3cml0ZSUyRndvcmtzJTJGYWNhZGVtaWMtYnVpbGRpbmclMkZjb250ZW50LXN0YXRlJTIyJTJDJTIydHlwZSUyMiUzQSUyMkFubm90YXRpb24lMjIlMkMlMjJtb3RpdmF0aW9uJTIyJTNBJTVCJTIyY29udGVudFN0YXRlJTIyJTVEJTJDJTIydGFyZ2V0JTIyJTNBJTdCJTIyaWQlMjIlM0ElMjJodHRwcyUzQSUyRiUyRnRhbXVsaWItZGMtbGFicy5naXRodWIuaW8lMkZzZXNxdWljZW50ZW5uaWFsLW1hbmlmZXN0cyUyRmJ1aWxkaW5nX2hpc3RvcnklMkZBY2FkZW1pY19CdWlsZGluZyUyRmNhbnZhcyUyRjMwJTIyJTJDJTIydHlwZSUyMiUzQSUyMkNhbnZhcyUyMiUyQyUyMnBhcnRPZiUyMiUzQSU1QiU3QiUyMmlkJTIyJTNBJTIyaHR0cHMlM0ElMkYlMkZ0YW11bGliLWRjLWxhYnMuZ2l0aHViLmlvJTJGc2VzcXVpY2VudGVubmlhbC1tYW5pZmVzdHMlMkZidWlsZGluZ19oaXN0b3J5JTJGQWNhZGVtaWNfQnVpbGRpbmcuanNvbiUyMiUyQyUyMnR5cGUlMjIlM0ElMjJNYW5pZmVzdCUyMiU3RCU1RCU3RCU3RA" target="_blank">
     <figure>
-        <img src="images/share.png">
+        <img src="images/share.png" alt="An Image Showcasing the Share Feature">
         <figcaption>An example of the Share Feature</figcaption>
     </figure>
     </a>

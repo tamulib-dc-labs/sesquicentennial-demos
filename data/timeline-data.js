@@ -649,6 +649,14 @@ export default
       "events": [
         {
           "date": "1940",
+          "title": "Aggies win National Chapionship",
+          "description": "Concluding the 1939 football season, the Texas A&M football team defeats Tulane at the Sugar Bowl to win the national championship.",
+          "image": "",
+          "imageAlt": "",
+          "link": ""
+        },
+        {
+          "date": "1940",
           "title": "Singing Cadets Officially Established",
           "description": "The Singing Cadets is officially established in 1940, with roots in Glee Club dating back to 1893.",
           "image": "",
@@ -1453,16 +1461,16 @@ export default
           "date": "2010",
           "title": "Dr. R. Bowen Loftin Named President",
           "description": "Dr. R. Bowen Loftin '71 becomes Texas A&M University's 24th President.",
-          "image": "",
-          "imageAlt": "",
+          "image": "https://artsci.tamu.edu/news/2024/10/_news-images/loftin-bowen-adjusting-bowtie-tamf-2024.jpg",
+          "imageAlt": "Picture of President Loftin",
           "link": ""
         },
         {
           "date": "2011",
           "title": "SEC Move Announced",
           "description": "Texas A&M announces its departure from the Big 12 Conference. Texas A&M officially joins the Southeastern Conference on July 1, 2012.",
-          "image": "",
-          "imageAlt": "",
+          "image": "https://12thman.tamu.edu/assets/img/2012-join-sec.jpg",
+          "imageAlt": "Inaugural SEC season poster",
           "link": ""
         },
         {
@@ -1477,88 +1485,88 @@ export default
           "date": "2012",
           "title": "Johnny Manziel Wins Heisman",
           "description": "Johnny Manziel wins the 2012 Heisman Trophy, becoming the first freshman to win this award.",
-          "image": "",
-          "imageAlt": "",
+          "image": "https://images.sidearmdev.com/resize?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Ftamu.sidearmsports.com%2Fimages%2F2012%2F12%2F9%2FBSZQUWVLKHCBQWH.20121209221447.jpg&height=1100&type=webp",
+          "imageAlt": "Manziel holding the Heisman Trophy",
           "link": ""
         },
         {
           "date": "January 4, 2013",
           "title": "Cotton Bowl Championship Victory",
           "description": "Texas A&M wins the Cotton Bowl Championship against University of Oklahoma.",
-          "image": "",
-          "imageAlt": "",
+          "image": "https://images.sidearmdev.com/resize?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Ftamu.sidearmsports.com%2Fimages%2F2013%2F1%2F5%2FPXOFBWZCDSJERUI.20130105051752.jpg&height=1100&type=webp",
+          "imageAlt": "A&M team holding up the Cotton Bowl Trophy",
           "link": ""
         },
         {
           "date": "August 12, 2013",
           "title": "Law School Joins System",
           "description": "The Texas Wesleyan Law School joins the Texas A&M University System. The school is renamed Texas A&M University Schol of Law.",
-          "image": "",
-          "imageAlt": "",
+          "image": "https://stories.tamu.edu/wp-content/uploads/2020/12/law-school-building-twitter.jpg",
+          "imageAlt": "Texas A&M school of law building in Fort Worth",
           "link": ""
         },
         {
           "date": "2013",
           "title": "Joint Library Facility Opens",
           "description": "The Joint Library Facility is opened at Texas A&M University's Riverside Campus. This library is shared by the Texas A&M University System and the University of Texas System.",
-          "image": "",
-          "imageAlt": "",
+          "image": "https://stories.tamu.edu/wp-content/uploads/2019/06/image-617.png",
+          "imageAlt": "Shelves from inside the JLF",
           "link": ""
         },
         {
           "date": "2013",
           "title": "Health Science Center Added",
           "description": "The Texas A&M Health Science Center is added as a unit of Texas A&M University.",
-          "image": "",
-          "imageAlt": "",
+          "image": "https://stories.tamu.edu/wp-content/uploads/2020/07/20190815_HSC_Aerials_003.jpg",
+          "imageAlt": "Skyview of the HSC along John Sharp Parkway",
           "link": ""
         },
         {
           "date": "May 1, 2015",
           "title": "Michael K. Young Named President",
           "description": "Michael K. Young is announced as the 25th president of Texas A&M.",
-          "image": "",
-          "imageAlt": "",
+          "image": "https://www.law.tamu.edu/_assets/images/_profile-images/michael-k-young.png",
+          "imageAlt": "Portrait of President Young",
           "link": ""
         },
         {
           "date": "2015",
           "title": "Reveille IX Becomes First Lady",
           "description": "Reveille IX officially takes over as First Lady after Reveille VIII retires.",
-          "image": "",
-          "imageAlt": "",
+          "image": "https://www.tamug.edu/nautilus/articles/images/Rev.jpg",
+          "imageAlt": "Portrait of Rev IX",
           "link": ""
         },
         {
           "date": "2016",
           "title": "Riverside Campus Renamed RELLIS",
           "description": "Riverside Campus is renamed RELLIS campus. The acronym stands for Respect, Excellence, Leadership, Loyalty, Integrity, and Selfless Service.",
-          "image": "",
-          "imageAlt": "",
+          "image": "https://tees.tamu.edu/research/_files/_images/_content-images/hero-image-rellis-entrance-3Aug2022.jpg",
+          "imageAlt": "Entrance sign of the RELLIS Campus with pillars adjacent",
           "link": ""
         },
         {
           "date": "April 27, 2017",
           "title": "Myles Garrett First Pick in NFL Draft",
           "description": "Myles Garrett is the first Texas A&M player drafted as first pick in the NFL draft.",
-          "image": "",
-          "imageAlt": "",
+          "image": "https://stories.tamu.edu/wp-content/uploads/sites/4/2017/04/MylesSpotlight.jpg",
+          "imageAlt": "Myles Garret posing in his A&M jersey with NFL, A&M, and Cleveland Browns logo",
           "link": ""
         },
         {
           "date": "April 17, 2018",
           "title": "Barbara Bush Laid to Rest",
           "description": "Barabara Bush, Former First Lady of the United States, is laid to rest at the Bush Presidential Library.",
-          "image": "",
-          "imageAlt": "",
+          "image": "https://stories.tamu.edu/wp-content/uploads/sites/4/2018/04/BPB_social-1.jpg",
+          "imageAlt": "TAMU Communication and Marketing memorial photo of the First Lady",
           "link": ""
         },
         {
           "date": "December 6, 2018",
           "title": "President George H.W. Bush Laid to Rest",
           "description": "President George W. Bush is laid to rest at the Bush Presidential Library.",
-          "image": "",
-          "imageAlt": "",
+          "image": "https://www.up.com/about-us/history/heritage-fleet/commemorative/ghw-bush-4141/funeral-train-photos#college-station-texas",
+          "imageAlt": "President Bush is carried off his train in College Station",
           "link": ""
         }
       ]
@@ -1571,24 +1579,24 @@ export default
           "date": "2021",
           "title": "Reveille X Becomes First Lady",
           "description": "Rev X is announced as First Lady following Reveille IX's retirement.",
-          "image": "",
-          "imageAlt": "",
+          "image": "https://www.tamu.edu/_files/images/traditions/reveille-portrait-tamu.jpg",
+          "imageAlt": "Portrait of Rev X",
           "link": ""
         },
         {
           "date": "2021",
           "title": "Katherine Banks Named President",
           "description": "Katherine Banks is appointed President of the University.",
-          "image": "",
-          "imageAlt": "",
+          "image": "https://stories.tamu.edu/wp-content/uploads/2021/03/dr-kathy-banks-scaled.jpeg",
+          "imageAlt": "Portait of President Banks",
           "link": ""
         },
         {
           "date": "December 12, 2023",
           "title": "General Mark A. Welsh Named President",
           "description": "General Mark A. Welsh is appointed President of the University.",
-          "image": "",
-          "imageAlt": "",
+          "image": "https://stories.tamu.edu/wp-content/uploads/2023/07/20230727_President_Welsh_Portrait_BB_9215-1412x2048.jpg",
+          "imageAlt": "Portrait of President Welsh",
           "link": ""
         }
       ]

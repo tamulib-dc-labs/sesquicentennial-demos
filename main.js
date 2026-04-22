@@ -77,7 +77,7 @@ renderContentBlock('#aggieland', {
   background: 'white',
   button: {
     text: 'Visit Aggieland Through Time',
-    href: 'https://innovation.library.tamu.edu/aggieland/',
+    href: 'https://innovation.library.tamu.edu/aggieland-through-time/',
     type: 'secondary'
   }
 });
@@ -87,7 +87,7 @@ renderTextContent('#using-map', {
   title: 'Using Aggieland Through Time',
   subtitle: 'Existing Features and Future Elements',
   content: `
-    <p>The <a href="https://innovation.library.tamu.edu/aggieland" target="_blank">Aggieland Through Time</a> 
+    <p>The <a href="hhttps://innovation.library.tamu.edu/aggieland-through-time/" target="_blank">Aggieland Through Time</a> 
     component lets users explore the history of the buildings across campus using either an interactive map or a 
     traditional text search.</p>
 
